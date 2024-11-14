@@ -19,7 +19,7 @@ This GitHub repository was put together by Philip Yao, Chris Kim, and Jessica Li
 - ds4002-project-2: Root Directory, Contains the following folders and files:
 
 - ds4002-project-2/DATA: 
-contains original dataset, cleaned dataset, and appendix
+contains original raw dataset and appendix
 
 - ds4002-project-2/SCRIPTS: 
 contains code used to clean, preprocess, and analyze image data
