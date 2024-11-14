@@ -36,10 +36,13 @@ contains plots and outputs
 - In the terminal, pip install requirements.txt; these are the necessary packages to perform the analysis
 
 - Run these commands in the terminal in order to clean and preprocess the raw data:
+
+```
 cd PATH/TO/SCRIPTS
 python binary_preprocess.py
 python dataset_split.py
 python image_preprocess.py
+```
 
 ### References:
 
