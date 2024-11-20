@@ -61,7 +61,10 @@ python CNN_models.py
 ```
 
 ### References:
+‌[1] A. Dobles, J. Sarmiento, and P. Satterthwaite, “Machine Learning Methods for Climbing Route Classification.” Available: https://cs229.stanford.edu/proj2017/final-reports/5232206.pdf‌
+[2] “MoonBoard - Train hard, climb harder!,” Moonclimbing.com, 2024. https://moonclimbing.com/moonboard (accessed Nov. 13, 2024). 
+[3] ColasGael, “DeepClimb/data/raw at master · ColasGael/DeepClimb,” GitHub, 2019. https://github.com/ColasGael/DeepClimb/tree/master/data/raw (accessed Nov. 20, 2024).
+‌
 
-https://github.com/ColasGael/DeepClimb/tree/master/data/raw 
 
 
