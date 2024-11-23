@@ -54,11 +54,7 @@ python image_preprocess.py
 
 - Run through code.ipynb if you are interested in looking at the processed image dataset.
 
-- Run these commands in the terminal in order to define the CNN model functions:
-
-```
-python CNN_models.py
-```
+- Run analysis_code to train the CNN
 
 ### References:
 ‌[1] A. Dobles, J. Sarmiento, and P. Satterthwaite, “Machine Learning Methods for Climbing Route Classification.” Available: https://cs229.stanford.edu/proj2017/final-reports/5232206.pdf
