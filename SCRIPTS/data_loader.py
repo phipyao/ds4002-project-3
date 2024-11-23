@@ -53,7 +53,7 @@ class ClimbBinaryDataset(Dataset):
         x = from_numpy(self.X[idx]).long()
         return x, self.y[idx]
     
-def fetch_dataloader(splits, params):
+def fetch_dataloader(splits, params=0):
     dataloaders = {}
     n_examples = {}
 

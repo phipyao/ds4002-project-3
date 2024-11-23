@@ -46,7 +46,8 @@ class BinaryClimbCNN(nn.Module):
                 nn.init.constant_(m.bias, 0)
         
     def forward(self, x):
-        x = torch.unsqueeze(x, 1)       # (N, 1, 18, 11)
-        logits = self.network(x)        # (N, n_classes, 1, 1)
-        logits = torch.squeeze(logits)       # (N, n_classes)
+        x = torch.unsqueeze(x, 1)  # Add a channel dimension: (N, 1, 18, 11)
+        x = self.cnn(x)            # Pass through the CNN layers
+        x = torch.flatten(x, 1)    # Flatten the output for the fully connected layer
+        logits = self.fc(x)        # Pass through the fully connected layer
         return logits
