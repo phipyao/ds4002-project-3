@@ -249,7 +249,7 @@ if __name__ == "__main__":
     splits = ("train", "val", "test")
     
     # whether to compute the train images statistics: mean and std
-    compute_img_stats = False
+    compute_img_stats = True
     
     main(rawDirName, binDirName, imDirName, splits, VERSIONS, compute_img_stats)
             
