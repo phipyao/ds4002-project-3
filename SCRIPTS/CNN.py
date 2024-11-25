@@ -11,29 +11,30 @@ class BinaryClimbCNN(nn.Module):
         self.n_classes = n_classes
 
         self.cnn = nn.Sequential(
-            nn.Conv2d(1, 8, 3, 1),
-            nn.BatchNorm2d(8),
-            nn.ReLU(),
-            nn.MaxPool2d(2),
-
-            nn.Conv2d(8, 16, 3, 1),
-            nn.BatchNorm2d(16),
-            nn.ReLU(),
-            nn.MaxPool2d(2),
-
-            nn.Conv2d(16, 32, 3, 1),
-            nn.BatchNorm2d(32),
-            nn.ReLU(),
-            nn.MaxPool2d(2),
-
-            nn.Conv2d(32, 64, 3, 1),
-            nn.BatchNorm2d(64),
-            nn.ReLU(),
-            nn.AvgPool2d(2),
-
-            nn.Conv2d(64, 64, 3, 1),
-            nn.BatchNorm2d(64),
-            nn.ReLU())
+            nn.Conv2d(1, n_channels, (3,3), padding=1, bias=True),               # (N, n_channels, 18, 11)
+            nn.BatchNorm2d(n_channels),                                          # (N, n_channels, 18, 11)
+            nn.ReLU(),                                                           # (N, n_channels, 18, 11)
+            nn.MaxPool2d(2, padding=1),                                          # (N, n_channels, 10, 6)
+            
+            nn.Conv2d(n_channels, n_channels*2, (3,3), padding=1, bias=True),    # (N, n_channels*2, 10, 6)
+            nn.BatchNorm2d(n_channels*2),                                        # (N, n_channels*2, 10, 6)
+            nn.ReLU(),                                                           # (N, n_channels*2, 10, 6)
+            nn.MaxPool2d(2),                                                     # (N, n_channels*2, 5, 3)
+            
+            nn.Conv2d(n_channels*2, n_channels*4, (3,3), padding=1, bias=True),  # (N, n_channels*4, 5, 3)
+            nn.BatchNorm2d(n_channels*4),                                        # (N, n_channels*4, 5, 3)
+            nn.ReLU(),                                                           # (N, n_channels*4, 5, 3)
+            nn.MaxPool2d(2, padding=1),                                          # (N, n_channels*4, 3, 2)
+            
+            nn.Conv2d(n_channels*4, n_channels*8, (3,3), padding=1, bias=True),  # (N, n_channels*8, 3, 2)
+            nn.BatchNorm2d(n_channels*8),                                        # (N, n_channels*8, 3, 2)
+            nn.ReLU(),                                                           # (N, n_channels*8, 3, 2)
+            nn.AvgPool2d((3, 2)),                                                # (N, n_channels*8, 1, 1)
+            
+            nn.Conv2d(n_channels*8, n_channels*8, (1,1), bias=True),             # (N, n_channels*8, 1, 1)
+            nn.BatchNorm2d(n_channels*8),                                        # (N, n_channels*8, 1, 1)
+            nn.ReLU()                                                           # (N, n_channels*8, 1, 1)
+            )
         
         self.fc = nn.Linear(64, n_classes)
         
